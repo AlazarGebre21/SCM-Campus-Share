@@ -33,16 +33,16 @@ type Report struct {
 	Resource   Resource  `gorm:"foreignKey:ResourceID" json:"resource,omitempty"`
 	UserID     uuid.UUID `gorm:"type:uuid;not null" json:"user_id"` // Reporter
 	User       User      `gorm:"foreignKey:UserID" json:"user,omitempty"`
-	
-	Type        ReportType   `gorm:"type:varchar(20);not null" json:"type"`
-	Reason      string       `gorm:"type:text;not null" json:"reason"`
-	Status      ReportStatus `gorm:"type:varchar(20);default:'pending'" json:"status"`
-	
+
+	Type   ReportType   `gorm:"type:varchar(20);not null" json:"type"`
+	Reason string       `gorm:"type:text;not null" json:"reason"`
+	Status ReportStatus `gorm:"type:varchar(20);default:'pending'" json:"status"`
+
 	// Admin who handled the report
-	ReviewedBy  *uuid.UUID `gorm:"type:uuid" json:"reviewed_by,omitempty"`
-	ReviewedAt  *time.Time `json:"reviewed_at,omitempty"`
-	AdminNotes  string     `gorm:"type:text" json:"admin_notes,omitempty"`
-	
+	ReviewedBy *uuid.UUID `gorm:"type:uuid" json:"reviewed_by,omitempty"`
+	ReviewedAt *time.Time `json:"reviewed_at,omitempty"`
+	AdminNotes string     `gorm:"type:text" json:"admin_notes,omitempty"`
+
 	CreatedAt time.Time      `json:"created_at"`
 	UpdatedAt time.Time      `json:"updated_at"`
 	DeletedAt gorm.DeletedAt `gorm:"index" json:"-"`
@@ -60,5 +60,3 @@ func (r *Report) BeforeCreate(tx *gorm.DB) error {
 func (Report) TableName() string {
 	return "reports"
 }
-
-

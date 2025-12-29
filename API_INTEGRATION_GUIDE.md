@@ -981,14 +981,30 @@ fetch('http://localhost:8080/api/v1/resources', {
 
 ---
 
+## New Features
+
+The backend now includes advanced features beyond basic CRUD operations:
+
+- **Report Content System** - Users can report inappropriate content
+- **Admin Moderation Dashboard** - Complete admin tools for managing the platform
+- **Analytics & Statistics** - Platform-wide analytics and insights
+- **Resource Recommendations** - Similar resources and personalized recommendations
+- **User Following System** - Social networking with activity feeds
+- **Discussion Forums** - Course-specific forums with voting and nested replies
+
+**📖 See [NEW_FEATURES_API_GUIDE.md](./NEW_FEATURES_API_GUIDE.md) for complete documentation of all new features.**
+
+---
+
 ## Support
 
 For questions or issues:
 - Check the backend README.md
 - Review error messages in API responses
+- See NEW_FEATURES_API_GUIDE.md for advanced features
 - Contact the backend team
 
 ---
 
-**Last Updated:** December 22, 2025
+**Last Updated:** December 29, 2025
 

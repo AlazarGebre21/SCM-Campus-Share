@@ -59,6 +59,10 @@ func Migrate() error {
 		&models.Report{},
 		&models.Tag{},
 		&models.ResourceTag{},
+		&models.Follow{},
+		&models.ForumTopic{},
+		&models.ForumReply{},
+		&models.ForumVote{},
 	)
 
 	if err != nil {
@@ -82,5 +86,3 @@ func Close() error {
 
 	return sqlDB.Close()
 }
-
-

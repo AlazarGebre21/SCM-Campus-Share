@@ -64,6 +64,11 @@ func main() {
 	commentHandler := handlers.NewCommentHandler()
 	ratingHandler := handlers.NewRatingHandler()
 	bookmarkHandler := handlers.NewBookmarkHandler()
+	reportHandler := handlers.NewReportHandler()
+	adminHandler := handlers.NewAdminHandler()
+	recommendationHandler := handlers.NewRecommendationHandler()
+	followHandler := handlers.NewFollowHandler()
+	forumHandler := handlers.NewForumHandler()
 
 	// API routes
 	api := router.Group("/api/v1")
@@ -94,6 +99,12 @@ func main() {
 			// Ratings
 			resources.GET("/:id/rating", ratingHandler.GetRating)
 			resources.POST("/:id/rating", middleware.AuthMiddleware(cfg), ratingHandler.CreateRating)
+
+			// Reports
+			resources.POST("/:id/report", middleware.AuthMiddleware(cfg), reportHandler.CreateReport)
+
+			// Recommendations
+			resources.GET("/:id/similar", recommendationHandler.GetSimilarResources)
 		}
 
 		// Comment routes
@@ -111,6 +122,60 @@ func main() {
 			bookmarks.GET("", bookmarkHandler.ListBookmarks)
 			bookmarks.POST("", bookmarkHandler.CreateBookmark)
 			bookmarks.DELETE("/:id", bookmarkHandler.DeleteBookmark)
+		}
+
+		// Recommendation routes
+		recommendations := api.Group("/recommendations")
+		recommendations.Use(middleware.AuthMiddleware(cfg))
+		{
+			recommendations.GET("", recommendationHandler.GetRecommendedForUser)
+		}
+
+		// Follow routes
+		follows := api.Group("/follows")
+		follows.Use(middleware.AuthMiddleware(cfg))
+		{
+			follows.POST("/users/:id", followHandler.FollowUser)
+			follows.DELETE("/users/:id", followHandler.UnfollowUser)
+			follows.GET("/users/:id/followers", followHandler.GetFollowers)
+			follows.GET("/users/:id/following", followHandler.GetFollowing)
+			follows.GET("/users/:id/check", followHandler.IsFollowing)
+			follows.GET("/feed", followHandler.GetActivityFeed)
+		}
+
+		// Forum routes
+		forum := api.Group("/forum")
+		{
+			// Topics
+			forum.GET("/topics", forumHandler.ListTopics)
+			forum.POST("/topics", middleware.AuthMiddleware(cfg), forumHandler.CreateTopic)
+			forum.GET("/topics/:id", forumHandler.GetTopic)
+			forum.GET("/topics/:id/replies", forumHandler.ListReplies)
+			forum.POST("/topics/:id/replies", middleware.AuthMiddleware(cfg), forumHandler.CreateReply)
+			forum.POST("/topics/:id/vote", middleware.AuthMiddleware(cfg), forumHandler.VoteOnTopic)
+
+			// Replies
+			forum.POST("/replies/:id/vote", middleware.AuthMiddleware(cfg), forumHandler.VoteOnReply)
+		}
+
+		// Admin routes
+		admin := api.Group("/admin")
+		admin.Use(middleware.AuthMiddleware(cfg))
+		admin.Use(middleware.AdminMiddleware())
+		{
+			// Reports management
+			admin.GET("/reports", adminHandler.ListReports)
+			admin.POST("/reports/:id/approve", adminHandler.ApproveReport)
+			admin.POST("/reports/:id/reject", adminHandler.RejectReport)
+
+			// User management
+			admin.POST("/users/:id/ban", adminHandler.BanUser)
+			admin.POST("/users/:id/unban", adminHandler.UnbanUser)
+
+			// Analytics
+			admin.GET("/analytics", adminHandler.GetAnalytics)
+			admin.GET("/analytics/popular", adminHandler.GetPopularResources)
+			admin.GET("/analytics/resources/:id", adminHandler.GetResourceStats)
 		}
 	}
 
