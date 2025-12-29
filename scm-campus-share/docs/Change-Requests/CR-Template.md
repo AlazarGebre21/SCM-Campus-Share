@@ -1,55 +1,66 @@
-# Change Request Template
+# Change Request (CR) Template
 
-## CR Information
-- **CR ID:** [Auto-generated or assigned ID]
-- **Date Submitted:** [YYYY-MM-DD]
-- **Submitted By:** [Name]
-- **Priority:** [Low/Medium/High/Critical]
-- **Status:** [Submitted/Under Review/Approved/Rejected/Implemented]
+**Change Request ID:** CR-XX  
+**Title:** [Short descriptive title of the change]
 
-## Change Description
+---
 
-### Problem Statement
-[Describe the problem or need that requires this change]
+**Requested By:** [Name / Team]  
+**Date Requested:** [YYYY-MM-DD]
 
-### Proposed Solution
-[Describe the proposed solution or change]
+---
 
-### Affected Components
-[List all components, modules, or documents that will be affected]
+## 1. Description of Change
 
-## Impact Analysis
+[Provide a detailed description of the change being requested. Include what is to be modified and why it is needed.]
 
-### Technical Impact
-[Describe technical implications of the change]
+---
 
-### Resource Impact
-[Estimate time, cost, and resources needed]
+## 2. Affected Configuration Items
 
-### Risk Assessment
-[Identify potential risks and mitigation strategies]
+- [CI Name 1]
+- [CI Name 2]
+- [CI Name 3]
 
-## Implementation Plan
+---
 
-### Steps
-1. [Step 1]
-2. [Step 2]
-3. [Step 3]
+## 3. Reason for Change
 
-### Timeline
-[Estimated timeline for implementation]
+[Explain why this change is necessary. Include problems it solves or improvements it brings.]
 
-### Testing Requirements
-[Describe testing needed to validate the change]
+---
 
-## Approval
+## 4. Impact Analysis
 
-### CCB Review
-- **Review Date:** [YYYY-MM-DD]
-- **Decision:** [Approved/Rejected/Deferred]
-- **Comments:** [CCB comments]
+- **Risk Level:** [Low / Medium / High]
+- **Affected Components:** [List modules, documents, systems]
+- **Dependencies:** [List any dependencies or related changes]
+- **Estimated Effort:** [Time / Complexity]
 
-### Sign-offs
-- **Configuration Manager:** [Name] - [Date]
-- **Project Manager:** [Name] - [Date]
-- **Technical Lead:** [Name] - [Date]
+---
+
+## 5. Priority
+
+[High / Medium / Low]
+
+---
+
+## 6. Decision
+
+[Approved / Rejected / Deferred]
+
+**Approved By:** [Name]  
+**Date Approved:** [YYYY-MM-DD]
+
+---
+
+## 7. Implementation Notes
+
+[Notes on how the change will be implemented, including feature branch, commit references, PR, etc.]
+
+---
+
+## 8. Version Control
+
+- **CI Version Updated:** [vX.X]
+- **Baseline Impacted:** [BL1 / BL2 / etc.]
