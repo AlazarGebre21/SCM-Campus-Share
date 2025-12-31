@@ -1,6 +1,7 @@
 # Change Log
 
 ## Purpose
+
 This document tracks all changes made to the SCM Campus Share project.
 
 ## Change History
@@ -8,7 +9,9 @@ This document tracks all changes made to the SCM Campus Share project.
 ### [Unreleased]
 
 ### [1.0.0] - Initial Release
+
 #### Added
+
 - Initial repository structure
 - Core documentation framework
 - SCMP document
@@ -17,24 +20,34 @@ This document tracks all changes made to the SCM Campus Share project.
 - Baseline record template
 
 #### Changed
+
 - N/A
 
 #### Deprecated
+
 - N/A
 
 #### Removed
+
 - N/A
 
 #### Fixed
+
 - N/A
 
 #### Security
+
 - N/A
 
 ---
 
 ## Change Log Format
-All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+# Change Log
+
+| CR ID  | Title                                                      | Decision | Status      | Version |
+| :----- | :--------------------------------------------------------- | :------- | :---------- | :------ |
+| CR-001 | Project Initialization & Tailwind CSS v4.0 Migration       | Approved | Implemented | v1.1    |
+| CR-002 | Implementation of Core Auth & Resource Modules             | Approved | Implemented | v1.1    |
+| CR-003 | Addition of Social Features (Comments, Ratings, Bookmarks) | Approved | Implemented | v1.1    |
+| CR-005 | Landing Page Integration & UI Theme Overhaul               | Approved | Implemented | v1.1    |
