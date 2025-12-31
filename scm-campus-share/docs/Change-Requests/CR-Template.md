@@ -1,66 +1,48 @@
-# Change Request (CR) Template
+# Change Request Form
 
-**Change Request ID:** CR-XX  
-**Title:** [Short descriptive title of the change]
+## Basic Information
+**Change Request ID:** CR-XXX  
+**Title:** [Brief descriptive title]  
+**Requested By:** [Name/Role]  
+**Date Requested:** YYYY-MM-DD  
+**Priority:** [Low/Medium/High/Critical]  
 
----
+## Change Details
+**Description of Change:**  
+[Clear description of what needs to be changed/added/fixed]
 
-**Requested By:** [Name / Team]  
-**Date Requested:** [YYYY-MM-DD]
+**Reason for Change:**  
+[Why this change is necessary - business need, bug fix, improvement, etc.]
 
----
+**Affected Configuration Items (CIs):**  
+- [CI Code - Description]
+- [CI Code - Description]
 
-## 1. Description of Change
+## Impact Analysis
+**Risk Assessment:** [Low/Medium/High]  
+**Effort Estimate:** [X hours/days]  
+**Dependencies:** [Other CRs, team members, resources]  
+**Testing Required:** [Yes/No - what type]
 
-[Provide a detailed description of the change being requested. Include what is to be modified and why it is needed.]
+## Approval Process
+**CCB Review Date:** [YYYY-MM-DD]  
+**Decision:** [Approved/Rejected/Deferred]  
+**Approved By (Project Manager):** [Name]  
+**Date Approved:** [YYYY-MM-DD]  
 
----
+## Implementation Tracking
+**Feature Branch:** feature/CR-XXX-Description  
+**Pull Request:** #XXX  
+**Commit References:** [Commit hashes]  
+**Implemented By:** [Name]  
+**Date Implemented:** [YYYY-MM-DD]  
+**Verified By (Auditor):** [Name]  
+**Date Verified:** [YYYY-MM-DD]  
 
-## 2. Affected Configuration Items
-
-- [CI Name 1]
-- [CI Name 2]
-- [CI Name 3]
-
----
-
-## 3. Reason for Change
-
-[Explain why this change is necessary. Include problems it solves or improvements it brings.]
-
----
-
-## 4. Impact Analysis
-
-- **Risk Level:** [Low / Medium / High]
-- **Affected Components:** [List modules, documents, systems]
-- **Dependencies:** [List any dependencies or related changes]
-- **Estimated Effort:** [Time / Complexity]
-
----
-
-## 5. Priority
-
-[High / Medium / Low]
-
----
-
-## 6. Decision
-
-[Approved / Rejected / Deferred]
-
-**Approved By:** [Name]  
-**Date Approved:** [YYYY-MM-DD]
+## Status
+**Current Status:** [Submitted/Under Review/Approved/In Progress/Implemented/Closed]  
+**Included in Baseline:** [BL1/BL2]  
+**Included in Release:** [v1.0/v1.1]
 
 ---
-
-## 7. Implementation Notes
-
-[Notes on how the change will be implemented, including feature branch, commit references, PR, etc.]
-
----
-
-## 8. Version Control
-
-- **CI Version Updated:** [vX.X]
-- **Baseline Impacted:** [BL1 / BL2 / etc.]
+*Template Version: 1.0 | Last Updated: 2025-12-29*
