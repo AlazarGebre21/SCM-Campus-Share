@@ -1,0 +1,128 @@
+Software Configuration Management Plan (SCMP)
+ 
+Project: Campus Share Academic Resource Sharing Platform
+Document Version: 1.0
+Date: December 16, 2025
+Prepared By: Alem (Project and Configuration manger)
+
+Status: Active
+ 
+1. Introduction
+This Software Configuration Management Plan (SCMP) establishes a practical framework to manage the components of the Campus Share project.
+Following the IEEE 828-2012 standard, our goal is to systematically track and control changes. This ensures every part of the project is accounted for allowing us to trace what changed, when and why.
+1.1 Purpose
+The purpose of this SCMP is to define the procedures, tools, and responsibilities for managing all configuration items (CIs) of the Campus Share platform during our SCM course project.
+It aims to ensure software integrity, provide clear change history, and support the creation of stable baselines for our work.
+1.2 Scope
+This plan applies to all artifacts created during  each SCM project phase.
+Included Items are
+Source code (Go backend, React frontend, and a simple HTML/JS UI for demonstration),
+ All project documentation (requirements, design, user guides).
+  Build scripts, test cases, and deployment configurations.
+ SCM artifacts like this plan, baseline records, and audit reports.
+Excluded Items are
+ Third-party libraries and commercial tools.
+ Individual developer environment setups.
+ Hardware and network infrastructure.
+ 1.3 Organizational Relationships
+Our team's organizational relationships are designed to facilitate clear communication
+and efficient workflow for SCM. The primary relationship is centered on the Configuration
+Control Board (CCB), which acts as the central hub for all formal change decisions. The
+CCB is composed of all team members, each contributing from their specialized domain. 
+the key working relationships that drive daily SCM activities are as follows:
+
+-Project & Configuration Manager (Alem) ↔ CCB & Change Control: Alem has a central leadership relationship with the entire CCB, acting as chair and final approver. She works most closely with the Change Control Manager (Adey) to ensure the change pipeline is flowing and that all requests are ready for CCB review. She also maintains the final authority to escalate decisions or resolve conflicts.
+-Developers ↔ Version Control Engineer (Alazar): All team members, when implementing approved changes, interact with Alazar for branch creation guidance, Pull Request reviews, and final merge operations according to the defined Git workflow.
+-Change Control Manager (Adey) ↔ All Members: Adey serves as the central process node. She receives initial change ideas from any team member, formalizes them into Change Requests, coordinates the CCB review, and updates the master Change Log post-implementation.
+-Configuration Auditor (Abrham M) ↔ Developers & CCB: Abrham M has a quality assurance relationship with the developers, verifying that implementations match approved CRs. he reports his audit findings directly to the CCB and the SCM Project Manager, with the authority to flag issues that must be resolved before a release.
+-CI & Documentation Specialist (Afomia) ↔ Developers & Release Manager (Abraham T): Afomia works with developers to register new or modified Configuration Items. She coordinates with Abraham T to ensure that all documentation and CI metadata is accurate and included in the final release package.
+-Release Manager (Abraham T) ↔ Version Control Engineer (Alazar): After Alazar creates a version tag (e.g., BL2), Abraham T takes ownership to create the formal GitHub Release, requiring close coordination to ensure the tagged state is stable and ready for packaging.
+There are no external organizational relationships (e.g., with a client department) for this academic project.
+
+1.4 References
+This plan was prepared with guidance from the following sources
+- IEEE Standard 828-2012, Standard for Configuration Management in Systems and Software Engineering.
+- Lecture notes and templates from the Software Configuration Management course.
+- Official documentation for Git and GitHub.
+- The initial project charter and requirements for the Campus Share platform.
+ 
+2. Criteria for Identifying Configuration Items
+A Configuration Item (CI) is any significant project artifact placed under formal control. For our project, we identify CIs based on a few key rules, if it's a key deliverable, requires team review, or depends on another component, it should be a CI.
+We have organized CIs into clear categories to keep things manageable
+- Documentation CIs: Includes the project requirements, UI mockups, and this SCMP document.
+- Source Code CIs: Covers the main Go backend API, the React frontend, and a simple HTML/JS interface built for SCM demonstration.
+- Build & Test CIs: Items like our Docker setup files and test scripts.
+- We will identify CIs progressively throughout the project phases, adding them to our official CI Register as they are created, rather than all at once.
+ 
+3. Limitations and Assumptions
+Our primary limitation is the condensed two week timeline to implement both software features and a full SCM process. We are also using the free tier of GitHub, which imposes some constraints on automation and private repositories.
+Our plan is built on several key assumptions. We assume all team members are comfortable with basic Git operations like committing and branching. We also assume consistent participation in the change review process and reliable access to our tools and communication platforms throughout the project.
+4. Configuration Management Responsibilities and Authorities
+4.1  Management Responsibilities
+The success of our SCM process depends on clear ownership. Our team follows an integrated model where each member holds a dual responsibility. Everyone serves as a developer, actively implementing code changes, while also owning a specific SCM stewardship role that governs a key part of the process.
+Alem serves as the Project & Configuration Manager. Her primary duty is overall governance, which includes finalizing the SCMP, establishing the project baselines (BL1 and BL2), and providing the final approval for all Change Requests.
+Alazar is our Version Control & Repository Engineer. He is responsible for the technical infrastructure, managing our central GitHub repository, defining and enforcing our Git branching strategy, and applying the official tags for our baselines and releases.
+Adey acts as the Change Control & Process Manager. She designs and maintains the formal Change Request workflow, ensuring every modification is documented, tracked in the master Change Log, and fully traceable from request to implementation.
+Abraham M is our Configuration Auditor & QA. He ensures the integrity of our work by conducting the Physical and Functional Configuration Audits (PCA & FCA), verifying that all CIs are correct, and preparing the final audit report.
+Afomia is the CI & Documentation Specialist. She identifies and catalogs all Configuration Items, maintains the master CI Register, and ensures consistency in documentation and naming conventions across all project artifacts.
+Abraham T takes on the critical role of Release & Deployment Manager. His focus is on the final delivery package. He creates the official GitHub Releases (v1.0, v1.1), writes comprehensive release notes, and verifies that our builds are stable and deployable.
+Collectively, these six stewardship roles form our Configuration Control Board (CCB), the formal body that collaboratively reviews, assesses, and recommends action on every proposed change.
+4.2 Authority Lines
+The Configuration Control Board (CCB), comprising all team members in their specialized roles, holds the collective authority to review, analyze, and recommend action on all Change Requests.
+The SCM Project Manager (Alem), as CCB Chair, holds the final authority to approve or reject CRs based on the CCB's analysis.
+The Version Control Engineer (Alazar) has the authority to enforce the branching model and is the only person authorized to create official release tags (v1.0, v1.1) and merge code into the main branch post-approval.
+The Configuration Auditor (Abrham M) has the authority to veto a release if audit checks reveal critical non-compliance with the approved CR or SCM procedures.
+The Release & Deployment Manager (Abraham T) has the authority to accept or reject a build for release. He ensures that the code in a release tag is stable, properly documented in release notes, and meets packaging standards before the release is published.
+Developers (all team members) have the authority to modify CIs only after a CR has received formal CCB approval and a feature branch has been created for that specific change.
+ 
+5. Project Organization
+The operational structure of this project is designed to facilitate clear ownership and collaborative governance through a unified team model. Rather than separate development and management groups,
+our team integrates these functions each member serves as a working developer responsible for implementing changes while simultaneously holding a specialized SCM stewardship role. 
+These six stewardship roles Project Manager, Version Control Engineer, Change Control Manager, Release Manager, Configuration Auditor, and CI Specialist collectively constitute the project’s Configuration Control Board (CCB). This design makes the CCB a built-in, active governance layer rather than an external committee, ensuring that every technical and procedural perspective is inherently part of decision-making.
+ 
+The effectiveness of this structure is realized through defined workflows that connect these integrated roles. Daily development activities flow through the Version Control and Release Managers for technical execution and packaging.
+The Change Control Manager centralizes and tracks all modification requests, serving as the primary link between developers and the CCB. The Configuration Auditor and CI Specialist provide continuous verification and documentation support throughout this workflow. All these streams converge in formal CCB reviews, where the specialized insights from each role inform collective decisions. This creates a closed-loop system where work, review, and approval are seamlessly connected, ensuring integrity and traceability from an initial idea to a finalized release.
+ 
+6. Applicable Policies, Standards, and Procedures
+We will adhere to several standards to maintain consistency
+- Version Control: We use Git with a feature-branch workflow. Work for a specific change happens on a branch named like feature/cr-001-avatar, merged into main via a reviewed Pull Request (PR).
+Naming Conventions:
+- CIs: Use a category code and number (e.g., DOC-001 for documents, SRC- 001 for source code).
+- Git Tags: Use BL1 and BL2 for baselines, and v1.0, v1.1 for releases.
+Our change control procedure follows this sequence
+Someone identifies a change and fills out a Change Request (CR) Form, then the CCB reviews the CR’s impact and decides whether to approve it.
+If approved, a developer creates a feature branch, implements the change, and submits a PR After peer review and testing, the PR is merged into the main branch. Finally, the Change Log and CI Register are updated.
+ 
+7. Planned SCM Activities and Schedule
+We have a tight but manageable schedule to complete all SCM deliverables by the submission date.
+Key Activities & Timeline
+ Week 1  Finalize this SCMP, identify initial CIs and establish our first baseline (BL1). This baseline captures the project's starting point with all core documents and code.
+Week 2 Execute the change control process. We will create, review and implement three Change Requests (e.g., improving UI or fixing a bug). After implementation, we will create our second baseline (BL2).
+Final Audit: We will conduct two audits. The Physical Configuration Audit (PCA) checks that all documented CIs exist in the repository with correct versions. The Functional Configuration Audit (FCA) verifies that implemented features work as intended. Results will be compiled into an audit report.
+8.  Baseline Planning & Management
+      Baselines in this project are established at key project milestones rather than
+      being triggered by individual Change Requests. This approach is suitable given
+      The fixed scope and short duration of the SCM project. BL1 marks the completion
+      of the planning phase, and BL2 marks the completion of the change
+       implementation phase, which includes the three required CRs.
+8.1 Baseline Definitions
+Baseline 1 (BL1 - Development Baseline): This baseline captures the initial, stable starting point of the SCM project. It represents the project state after initial planning, with all core structures and documentation in place, but before any SCM-specific changes are implemented.
+
+Baseline 2 (BL2 - Functional Baseline): This baseline captures the project state after all planned Change Requests (CRs) have been successfully implemented, integrated, and verified. It represents a functional increment of the software ready for final audit and release.
+8.2 Baseline Content & Establishment Criteria
+The contents and formal criteria for establishing each baseline are planned as follows to provide clear quality gates for our project phases.
+Baseline 1 (BL1) – The Development Baseline will be tagged as BL1. Its purpose is to capture the verified starting point of the SCM project. To establish BL1, the following criteria must be met and contents included: the complete repository structure must be in place with the required /docs, /src, /tests, and /releases directories; version 1.0 of this SCMP document must be completed and reviewed; an initial CI Register must list all identified configuration items foundational documents like project requirements and simple UI mockups must be present; and the main Campus Share source code must be in its initial, functional state. The baseline will be created only after the SCMP is agreed upon by the team and the CI Register is populated.
+Baseline 2 (BL2) – The Functional Baseline will be tagged as BL2. This baseline marks the completion of the change implementation phase and will serve as the foundation for the final release. Establishment of BL2 is contingent upon the successful implementation, testing, and merging of all three required Change Requests (CR-001, CR-002, CR-003) into the main branch. In addition to containing all items from BL1, this baseline must include the updated Change Log and CI Register reflecting these modifications, as well as the completed audit checklists (PCA/FCA). A final check of code review and basic integration testing will serve as the entry criteria before this baseline is formally set.
+8.3 Baseline Creation Procedure
+The creation of a formal baseline follows these steps:
+Verification: The Configuration Auditor (Abrish M) verifies that all Establishment Criteria for the baseline are met.
+
+Tagging: The Version Control Engineer (Alazar) creates an annotated Git tag (e.g., git tag -a BL1 -m "Baseline 1: Initial SCM project state") pointing to the exact commit in the main branch that satisfies the criteria.
+Documentation: The CI & Documentation Specialist (Afomia) creates or updates a one-page Baseline Record document summarizing the contents, date, and tag.
+Approval: The Project & Configuration Manager (Alem) reviews and approves the baseline, confirming it is ready for the next phase (development for BL1, audit/release for BL2). 
+9. SCMP Maintenance
+This is a living document. If the project scope shifts or we find a better process, we will update this SCMP. Any proposed change to the plan itself must be reviewed by the CCB and approved by the Configuration Manager, following our standard change control process. We will version the document (e.g., from v1.0 to v1.1) and ensure all team members have the latest copy.
+The plan will be reviewed informally during weekly team syncs and formally at the end of each major project phase to ensure it remains relevant.
+
+
+
