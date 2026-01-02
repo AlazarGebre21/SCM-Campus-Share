@@ -168,3 +168,6 @@ This project is licensed under the GNU General Public License v3.0 - see the [LI
 For support, email support@campus-share.com or open an issue in the repository.
 
 
+
+# SCM-Campus-Share
+This is a repo for sharing resources across university students. 
