@@ -32,4 +32,46 @@ export const resourceService = {
     console.log(id);
     return response.data.download_url; // Returns signed S3 URL
   },
+  async addBookmark(resourceId) {
+    const response = await api.post("/bookmarks", { resource_id: resourceId });
+    return response.data;
+  },
+
+  async removeBookmark(resourceId) {
+    try {
+      // If your backend expects a DELETE request to /bookmarks/:id
+      const response = await api.delete(`/bookmarks/${resourceId}`);
+      return response.data;
+    } catch (error) {
+      // If the above fails, some backends use a POST to "un-bookmark"
+      // or a different URL structure.
+      console.warn("Standard delete failed, trying alternative route...");
+      throw error;
+    }
+  },
+
+  // 1. Report a Resource
+  async report(id, type, reason) {
+    const response = await api.post(`/resources/${id}/report`, {
+      type,
+      reason,
+    });
+    return response.data;
+  },
+
+  // 2. Get Similar Resources
+  async getSimilar(id, limit = 4) {
+    const response = await api.get(`/resources/${id}/similar`, {
+      params: { limit },
+    });
+    return response.data.resources;
+  },
+
+  // 3. Get Personalized Recommendations
+  async getRecommendations(limit = 6) {
+    const response = await api.get("/recommendations", {
+      params: { limit },
+    });
+    return response.data.resources;
+  },
 };

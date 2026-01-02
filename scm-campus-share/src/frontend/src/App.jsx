@@ -14,8 +14,13 @@ import UploadResource from "./pages/UploadResource";
 import ResourceDetails from "./pages/ResourceDetails";
 import Bookmarks from "./pages/Bookmarks";
 import Profile from "./pages/Profile";
-import Chat from "./pages/Chat";
-import LandingPage from "./features/landing/LandingPage.jsx";
+import LandingPage from "./features/landing/LandingPage";
+import PublicProfile from "./pages/PublicProfile";
+import ForumFeed from "./features/forum/ForumFeed";
+import TopicDetails from "./features/forum/TopicDetails";
+import AdminRoute from "./features/admin/AdminRoute";
+import AdminDashboard from "./features/admin/AdminDashboard";
+
 function App() {
   return (
     <AuthProvider>
@@ -32,11 +37,17 @@ function App() {
               <Route path="resource/:id" element={<ResourceDetails />} />
               <Route path="profile" element={<Profile />} />
               <Route path="bookmarks" element={<Bookmarks />} />
-              <Route path="chat" element={<Chat />} />
+              <Route path="users/:id" element={<PublicProfile />} />
+              <Route path="forum" element={<ForumFeed />} />
+              <Route path="forum/:id" element={<TopicDetails />} />
+            </Route>
+
+            <Route element={<AdminRoute />}>
+              <Route path="/admin" element={<AdminDashboard />} />
             </Route>
           </Route>
-
-          <Route path="/" element={<Navigate to="/app" replace />} />
+          {/* //Redirect any unknown routes back to home */}
+          <Route path="*" element={<Navigate to="/app" replace />} />
         </Routes>
       </Router>
     </AuthProvider>

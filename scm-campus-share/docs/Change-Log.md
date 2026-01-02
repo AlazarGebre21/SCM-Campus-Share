@@ -47,7 +47,8 @@ This document tracks all changes made to the SCM Campus Share project.
 
 | CR ID  | Title                                                      | Decision | Status      | Version |
 | :----- | :--------------------------------------------------------- | :------- | :---------- | :------ |
-| CR-001 | Project Initialization & Tailwind CSS v4.0 Migration       | Approved | Implemented | v1.1    |
-| CR-002 | Implementation of Core Auth & Resource Modules             | Approved | Implemented | v1.1    |
-| CR-003 | Addition of Social Features (Comments, Ratings, Bookmarks) | Approved | Implemented | v1.1    |
-| CR-005 | Landing Page Integration & UI Theme Overhaul               | Approved | Implemented | v1.1    |
+| CR-001 | Project Initialization & Tailwind CSS v4.0 Migration       | Approved | Implemented | v1.0    |
+| CR-002 | Implementation of Core Auth & Resource Modules             | Approved | Implemented | v1.0    |
+| CR-003 | Addition of Social Features (Comments, Ratings, Bookmarks) | Approved | Implemented | v1.0    |
+| CR-005 | Landing Page Integration & UI Theme Overhaul               | Approved | Implemented | v1.0    |
+| CR-006 | Update All Frontend UI Components                          | Approved | Implemented | v1.1    |

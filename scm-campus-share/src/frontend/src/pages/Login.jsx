@@ -15,89 +15,75 @@ const Login = () => {
       await login(formData.email, formData.password);
       navigate("/app");
     } catch (err) {
-      setError(err.response?.data?.error || "Invalid credentials");
+      if (!err.response) {
+        setError("Server is offline. Please make sure the backend is running.");
+      } else {
+        setError(err.response?.data?.error || "Invalid email or password");
+      }
     }
   };
 
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50">
-      <div className="w-full max-w-md space-y-8 rounded-lg bg-white p-8 shadow-md">
-        <div className="text-center">
-          <h2 className="text-3xl font-extrabold text-gray-900">Sign in</h2>
-          <p className="mt-2 text-sm text-gray-600">
-            Access your campus resources
-          </p>
-        </div>
-
-        {error && (
-          <div className="rounded bg-red-50 p-3 text-sm text-red-500 border border-red-200">
-            {error}
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-slate-50 to-blue-100 px-4">
+        <div className="w-full max-w-md bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white">
+          <div className="mb-10 text-center">
+            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-600 text-white shadow-indigo-200 shadow-lg">
+              <span className="text-2xl font-bold">C</span>
+            </div>
+            <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">Welcome Back</h2>
+            <p className="mt-2 text-sm text-slate-500 font-medium">
+              Campus Share: Your Academic Hub
+            </p>
           </div>
-        )}
-
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-          <div className="space-y-4 rounded-md shadow-sm">
+  
+          {error && (
+            <div className="mb-6 rounded-xl bg-red-50 p-4 text-sm text-red-600 border border-red-100 flex items-center gap-3">
+               <span className="h-2 w-2 rounded-full bg-red-600 animate-pulse" />
+               {error}
+            </div>
+          )}
+  
+          <form className="space-y-5" onSubmit={handleSubmit}>
             <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Email address
-              </label>
+              <label className="block text-xs font-semibold uppercase tracking-wider text-slate-500 ml-1 mb-1">Email Address</label>
               <input
-                id="email"
-                name="email"
                 type="email"
                 required
-                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
+                className="block w-full rounded-xl border-slate-200 bg-slate-50/50 px-4 py-3 text-sm transition-all focus:border-indigo-500 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 outline-none"
                 placeholder="student@university.edu"
                 value={formData.email}
-                onChange={(e) =>
-                  setFormData({ ...formData, email: e.target.value })
-                }
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               />
             </div>
             <div>
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Password
-              </label>
+              <label className="block text-xs font-semibold uppercase tracking-wider text-slate-500 ml-1 mb-1">Password</label>
               <input
-                id="password"
-                name="password"
                 type="password"
                 required
-                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
+                className="block w-full rounded-xl border-slate-200 bg-slate-50/50 px-4 py-3 text-sm transition-all focus:border-indigo-500 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 outline-none"
+                placeholder="••••••••"
                 value={formData.password}
-                onChange={(e) =>
-                  setFormData({ ...formData, password: e.target.value })
-                }
+                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
               />
             </div>
+  
+            <button
+              type="submit"
+              className="w-full rounded-xl bg-indigo-600 py-3 text-sm font-bold text-white shadow-indigo-200 shadow-lg transition-all hover:bg-indigo-700 hover:-translate-y-0.5 active:scale-95"
+            >
+              Sign In
+            </button>
+          </form>
+  
+          <div className="mt-8 text-center text-sm">
+            <span className="text-slate-500 font-medium">New here? </span>
+            <Link to="/register" className="font-bold text-indigo-600 hover:text-indigo-500 underline-offset-4 hover:underline">
+              Create an account
+            </Link>
           </div>
-
-          <button
-            type="submit"
-            className="group relative flex w-full justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-          >
-            Sign in
-          </button>
-        </form>
-
-        <div className="text-center text-sm">
-          <span className="text-gray-600">Don't have an account? </span>
-          <Link
-            to="/register"
-            className="font-medium text-blue-600 hover:text-blue-500"
-          >
-            Register here
-          </Link>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  };
 
 export default Login;
