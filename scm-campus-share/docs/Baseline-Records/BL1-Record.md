@@ -34,9 +34,9 @@
 Date: December 29, 2025
 
 **Configuration Auditor:** _____Approved__________________
-*Abrish M*
+*Abrham Mulugeta*
 Date: December 29, 2025
 
 **CI & Documentation Specialist:** _______Approved________________
-*Afomia*
+*Afomia Dugassa*
 Date: December 29, 2025
