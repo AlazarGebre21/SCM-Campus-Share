@@ -143,7 +143,7 @@ This register documents all Configuration Items at Baseline 2, providing a snaps
 
 ## Approvals
 
-**Project & Configuration Manager:** **Approved**\*\*****\_\_\_****\*\*****
+**Project & Configuration Manager:** **Approved**\*\*\***\*\_\_\_\*\***\*\*\*\*\*\*
 _Alem Ayalew_
 Date: December 29, 2025
 
